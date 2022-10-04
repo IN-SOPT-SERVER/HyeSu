@@ -11,3 +11,33 @@
 
 -> 대신 `let`과 `const`를 쓰자.
 
+<br>
+
+# Scope (범위)
+
+함수스코프와 블록스코프가 있다.(유효범위 차이) 블록스코프를 사용하면 **호이스팅**의 문제를 해결할 수 있다.
+
+### Function Scope
+
+- 유효범위가 **함수 내** (함수밖에서는 접근 불가능!!!!)
+- `var`
+
+``` javascript
+if (true) {
+  var x = "var";
+}
+console.log("x: ", x);
+```
+
+### Block Scope
+
+- 블록의 범위: if { }, while { }, for { }, function { } 등..
+- `let`, `const`
+- 주어진 코드 블록 안에서만 사용이 가능하며, 외부에서 접근할 수 없다.
+```javascript
+if (true) {
+    let y = "let";
+}
+// console.log("y: ", y); // 오류 ReferenceError: y is not defined
+```
+
