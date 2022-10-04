@@ -16,11 +16,16 @@ interface Member {
 //     organize: (array: Member[], foods: string[]) => void,
 // }
 
+interface Food {
+    name: string
+    category: string
+}
+
 interface Dinner {
     members: Member[],
-    foods: string[],
-    shuffle: (<T extends Member|string>(array: T[]) => T[]),
-    organize: (array: Member[], foods: string[]) => void,
+    foods: Food[],
+    shuffle: (<T extends Member|Food>(array: T[]) => T[]),
+    organize: (array: Member[], foods: Food[]) => void,
 }
 
 const dinner: Dinner = {
@@ -47,10 +52,22 @@ const dinner: Dinner = {
         },
     ],
     foods: [
-        "회",
-        "삼겹살",
-        "된장찌개",
-        "돈까스",
+        {
+            name: "회",
+            category: "일식"
+        },
+        {
+            name: "삼겹살",
+            category: "한식"
+        },
+        {
+            name: "된장찌개",
+            category: "한식"
+        }, 
+        {
+            name: "돈까스",
+            category: "일식"
+        }
     ],
     shuffle(array) {
         array.sort(() => Math.random() - 0.5);
@@ -59,7 +76,7 @@ const dinner: Dinner = {
     organize(array, foods) {
         this.shuffle(array);
         this.shuffle(foods);
-        console.log(`결과: ${array[0].name}랑 ${array[1].name} 저녁먹기, 메뉴: ${foods[0]}`);
+        console.log(`결과: ${array[0].name}랑 ${array[1].name} 저녁먹기, 메뉴: ${foods[0].name}(${foods[0].category})`);
     },
 };
 
