@@ -1,4 +1,4 @@
 export interface Food {
-    name: string
-    category: string
+    name: string,
+    category: string,
 }
