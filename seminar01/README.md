@@ -41,3 +41,24 @@ if (true) {
 // console.log("y: ", y); // 오류 ReferenceError: y is not defined
 ```
 
+<br>
+
+# Type
+
+## Null과 Undefined
+
+- `Null` : 정해지지 않은 값, 어떤 값이 의도적으로 비어있음을 나타낸다.
+    ```javascript
+    let a = null; 
+    console.log(c); // null
+    ```
+  
+- `Undefined` : 정해지지 않은 타입, 초기화되지 않은 변수, 존재하지 않는 값
+  ```javascript
+  let b;
+  console.log(b); // undefined
+  ```
+
+<img width="661" alt="image" src="https://user-images.githubusercontent.com/68391767/193870158-88bca0ca-b3ee-470f-b218-0c55a971149a.png">
+
+undefined의 경우 변수를 선언한 후 값을 할당하지 않은 상태 (..생기다만상태..?), null은 변수를 선언한 후 빈 값을 할당한 상태이다.
