@@ -9,10 +9,17 @@ interface Member {
     group: string,
 }
 
+// interface Dinner {
+//     members: Member[],
+//     foods: string[],
+//     shuffle: ((array: Member[] | string[]) => Member[] | string[]),
+//     organize: (array: Member[], foods: string[]) => void,
+// }
+
 interface Dinner {
     members: Member[],
     foods: string[],
-    shuffle: ((array: Member[] | string[]) => Member[] | string[]),
+    shuffle: (<T extends Member|string>(array: T[]) => T[]),
     organize: (array: Member[], foods: string[]) => void,
 }
 
@@ -52,7 +59,7 @@ const dinner: Dinner = {
     organize(array, foods) {
         this.shuffle(array);
         this.shuffle(foods);
-        console.log(`결과 ${array[0].name}랑 ${array[1].name} 저녁먹기, 메뉴: ${foods[0]}`);
+        console.log(`결과: ${array[0].name}랑 ${array[1].name} 저녁먹기, 메뉴: ${foods[0]}`);
     },
 };
 
