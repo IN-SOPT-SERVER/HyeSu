@@ -4,29 +4,8 @@
 2. organize 내부 로직 채우기
 */
 
-interface Member {
-    name: string,
-    group: string,
-}
+import { Dinner } from "./interface/dinner"
 
-// interface Dinner {
-//     members: Member[],
-//     foods: string[],
-//     shuffle: ((array: Member[] | string[]) => Member[] | string[]),
-//     organize: (array: Member[], foods: string[]) => void,
-// }
-
-interface Food {
-    name: string
-    category: string
-}
-
-interface Dinner {
-    members: Member[],
-    foods: Food[],
-    shuffle: (<T extends Member|Food>(array: T[]) => T[]),
-    organize: (array: Member[], foods: Food[]) => void,
-}
 
 const dinner: Dinner = {
     members: [
@@ -73,10 +52,10 @@ const dinner: Dinner = {
         array.sort(() => Math.random() - 0.5);
         return array;
     },
-    organize(array, foods) {
-        this.shuffle(array);
+    organize(members, foods) {
+        this.shuffle(members);
         this.shuffle(foods);
-        console.log(`결과: ${array[0].name}랑 ${array[1].name} 저녁먹기, 메뉴: ${foods[0].name}(${foods[0].category})`);
+        console.log(`결과: ${members[0].name}랑 ${members[1].name} 저녁먹기, 메뉴: ${foods[0].name}(${foods[0].category})`);
     },
 };
 
